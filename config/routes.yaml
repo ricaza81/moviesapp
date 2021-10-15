@@ -1,0 +1,40 @@
+index:
+    path: /
+    controller: App\Controller\DefaultController::indexAction
+
+#app_lucky_number:
+#    path: /lucky/number
+#    path: /
+#    controller: App\Controller\LuckyController::number
+
+#movies_film:
+#    resource: "@MoviesBundle/Resources/config/routing/film.yml"
+#    prefix:   /film
+
+#movies_homepage:
+#    path:     /
+#    controller: App\Controller\DefaultController::indexAction
+    
+#roles_insert:
+#    path:     /roles/insert
+#    defaults: { _controller: MoviesBundle:Roles:create }
+    
+#roles_show:
+#    path:     /roles
+#    defaults: { _controller: MoviesBundle:Roles:show }
+    
+#persons_insert:
+#    path:     /persons/insert
+#    defaults: { _controller: MoviesBundle:Persons:create }    
+    
+#persons:
+#    path:     /persons
+#    defaults: { _controller: MoviesBundle:Persons:show }
+    
+#persons_edit:
+#    path:     /persons/edit/{id}
+#    defaults: { _controller: MoviesBundle:Persons:edit }
+    
+#persons_delete:
+#    path:     /persons/delete/{id}
+#    defaults: { _controller: MoviesBundle:Persons:delete }     
