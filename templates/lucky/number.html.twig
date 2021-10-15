@@ -2,10 +2,39 @@
 {% block body %}
 
 <div class="row" style="padding-top:60px">
+    <h1>Films list Api</h1>
       <div class="col-sm-4 col-lg-4 col-md-4">
-        <h5>The movies are: {{content}}</h5>
+        <h5>The movies are:<br/>
+        Title: {{response.title}}<br/>
+        Release Date: {{response.release_date}}<br/>
+        </h5>
+
       </div>
 </div>
+
+<!--<h1>Films list Api</h1>
+
+{#     <table class="table table-striped">#}
+{#         <thead>#}
+{#             <tr>#}
+{#                 <th>Titulo</th>#}
+{#             </tr>#}
+{#         </thead>#}
+{#         <tbody>#}
+{#         {% for res in response %}#}
+{#             <tr>#}
+{#                 <td><a href="">{{ res.title }}</a></td>#}
+{#             </tr>#}
+{#         {% endfor %}#}
+{#         </tbody>#}
+{#     </table>#}
+
+#<h1 style="margin: 80px 0 20px;">Film list</h1>
+#    <div class="row">
+#            {% for response in response %}
+#             {% endfor %}
+#    </div> -->
+
 
 {#     <h1>Films list</h1>#}
 
