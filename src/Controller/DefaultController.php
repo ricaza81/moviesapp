@@ -24,10 +24,22 @@ class DefaultController extends AbstractController
         //    );
 
         $httpClient = HttpClient::create();
-        $response = $httpClient->request('GET', 'https://swapi.dev/api/people/1/');
-        $content = $response->getContent();
+        //$response = $httpClient->request('GET', 'https://swapi.dev/api/people/1/');
+        $response = $httpClient->request('GET', 'https://swapi.dev/api/films/1/');
+        $responses =[];
+        //$content = $response->getContent();
+        if (200 !== $response->getStatusCode()) {
+            // handle the HTTP request error (e.g. retry the request)
+            } else {
+            $content = $response->getContent();
+            foreach ($httpClient->stream($responses) as $response => $chunk) 
+            {
+                $title=$chunk->title;
+            }
+            }
               return $this->render('lucky/number.html.twig',
                 [
+               //   'title' => $title,
                     'content' => $content,
                     'films' => $films,
                 ]
