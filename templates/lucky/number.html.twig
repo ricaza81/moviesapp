@@ -5,12 +5,27 @@
     <h1>Films list Api</h1>
       <div class="col-sm-4 col-lg-4 col-md-4">
         <h5>The movies are:<br/>
-        Title: {{response.title}}<br/>
-        Release Date: {{response.release_date}}<br/>
+         {% for result in response %}
+        Title:<br/>
+        Release Date: <br/>
+        {% endfor %}
         </h5>
 
       </div>
 </div>
+
+<!--<div class="row" style="padding-top:60px">
+    <h1>Films list Api</h1>
+      <div class="col-sm-4 col-lg-4 col-md-4">
+        <h5>The movies are:<br/>
+         {% for film in films %}
+        Title: {{film.id}}<br/>
+        Release Date: {{film.id}}<br/>
+        {% endfor %}
+        </h5>
+
+      </div>
+</div>-->
 
 <!--<h1>Films list Api</h1>
 

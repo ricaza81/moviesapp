@@ -25,8 +25,8 @@ class DefaultController extends AbstractController
 
         $httpClient = HttpClient::create();
         //$response = $httpClient->request('GET', 'https://swapi.dev/api/people/1/');
-        $response1 = $httpClient->request('GET', 'https://swapi.dev/api/films/1/');
-        $response = json_decode($response1->getContent());
+        $response1 = $httpClient->request('GET', 'https://swapi.dev/api/films');
+        $response = json_decode($response1->getContent(), true);
         $responses =[];
         //$content = $response->getContent();
         if (200 !== $response1->getStatusCode()) {
