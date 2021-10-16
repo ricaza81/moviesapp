@@ -52,11 +52,11 @@ class DefaultController extends AbstractController
      */
      public function showAction(Film $film)
     {
-        $deleteForm = $this->createDeleteForm($film);
+        //$deleteForm = $this->createDeleteForm($film);
 
-        return $this->render('film/show.html.twig', array(
+        return $this->render('lucky/show.html.twig', array(
             'film' => $film,
-            'delete_form' => $deleteForm->createView(),
+        //    'delete_form' => $deleteForm->createView(),
         ));
     }
 }
