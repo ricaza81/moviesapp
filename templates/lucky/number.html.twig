@@ -50,7 +50,7 @@
                                         <a href="" class="btn btn-default">{{ person.name~' '~person.surname~' '~person.roles.name }}</a>
                                 {% endfor %}
                                 </p> -->
-                                <h4><a href="">{{ film.title }}</a>
+                                <h4><a href="{{ path ('film_show', {id:film.id} ) }}" target="_blank">{{ film.title }}</a>
                                 </h4>
                                 <p>{{ film.description }}.</p>
                             </div>
