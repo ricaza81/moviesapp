@@ -7,7 +7,7 @@
         <h5># Films: {{response.count}}<br/>
  {#       <!--<h5># Films: {{response.results}}<br/>-->#}
         {% for result in response.results %}
-        Title: {{result.title}}<br/>
+        Title: <a href="" target="_blank">{{result.title}}</a><br/>
         Release Date: {{result.release_date}} <br/>
         {% endfor %}
         </h5>
