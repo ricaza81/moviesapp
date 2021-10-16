@@ -4,11 +4,13 @@ namespace App\Controller;
 
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+//use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use App\Entity\Film;
 use App\Entity\Persons;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpClient\HttpClient;
 use Symfony\Component\HttpFoundation\JsonResponse;
+//use Doctrine\ORM\Mapping\ClassMetadata;
 
 class DefaultController extends AbstractController
 {
@@ -36,6 +38,22 @@ class DefaultController extends AbstractController
                     'films' => $films,
                 ]
                 );
+    }
+
+      /**
+     * Finds and displays a film entity api.
+     *
+     */
+     public function showActionApi():Response
+    {
+       $httpClient = HttpClient::create();
+       //$response = $httpClient->request('GET','$result.url');
+       $response = $httpClient->request('GET', 'https://swapi.dev/api/films/1/');
+       $film = json_decode($response->getContent(), true);
+
+        return $this->render('lucky/show_api.html.twig', array(
+            'film' => $film,
+        ));
     }
 
      /**

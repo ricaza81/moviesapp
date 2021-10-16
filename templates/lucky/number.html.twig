@@ -2,7 +2,7 @@
 {% block body %}
 
 <div class="row" style="padding-top:60px">
-    <h1>Total {{response.count}} Films list Api</h1>
+    <h1>Total {{response.count}} Films list Api swapi.dev</h1>
       <div class="col-md-6">
       <!--  <div class="col-sm-4 col-lg-4 col-md-4">
             <table class="table table-striped">
@@ -20,7 +20,7 @@
           <tbody>
             <tr>
                   <th>Title:</th>
-                  <th><a href="" target="_blank">{{result.title}}</a></th>
+                  <th><a href="{{ path ('film_show_api', {result:result} ) }}" target="_blank">{{result.title}}</a></th>
             </tr>
             <tr>
                 <th>Release Date:</th>

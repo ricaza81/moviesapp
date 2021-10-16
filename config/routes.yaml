@@ -4,10 +4,13 @@ index:
 
 film_show:
     path:   /film/{id}/show
-#    defaults: { _controller: "App:Film:show" }
     controller: App\Controller\DefaultController::showAction
     methods:  GET
-#    methods: [GET, POST]
+
+film_show_api:
+    path:   /film_api/show
+    controller: App\Controller\DefaultController::showActionApi
+#    methods:  GET
 
 #app_lucky_number:
 #    path: /lucky/number
