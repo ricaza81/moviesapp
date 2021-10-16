@@ -46,6 +46,10 @@ class DefaultController extends AbstractController
                 );
     }
 
+     /**
+     * Finds and displays a film entity.
+     *
+     */
      public function showAction(Film $film)
     {
         $deleteForm = $this->createDeleteForm($film);
