@@ -37,16 +37,16 @@
             {% for film in films %}
                     <div class="col-sm-4 col-lg-4 col-md-4">
                         <div class="thumbnail">
-                            <a href="{{ path ('film_show', {id:film.id} ) }}" target="_blank">
+                         <!--   <a href="{{ path ('film_show', {id:film.id} ) }}" target="_blank"> -->
                                <!-- <img src="{{ asset('uploads/films/'~film.path) }}" alt="" style="width:100%;height:400px">-->
-                                {{film.title}}
-                            </a>
+                         <!--       {{film.title}} -->
+                         <!--   </a> -->
                             <div class="caption">
-                                <p class="pull-right"><h4>Film crew:</h4>
+                          <!--      <p class="pull-right"><h4>Film crew:</h4>
                                 {% for person in film.persons %}
                                         <a href="" class="btn btn-default">{{ person.name~' '~person.surname~' '~person.roles.name }}</a>
                                 {% endfor %}
-                                </p>
+                                </p> -->
                                 <h4><a href="">{{ film.title }}</a>
                                 </h4>
                                 <p>{{ film.description }}.</p>
