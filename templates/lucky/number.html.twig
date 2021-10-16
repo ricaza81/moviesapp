@@ -2,16 +2,33 @@
 {% block body %}
 
 <div class="row" style="padding-top:60px">
-    <h1>Films list Api</h1>
-      <div class="col-sm-4 col-lg-4 col-md-4">
-        <h5># Films: {{response.count}}<br/>
+    <h1>{{response.count}} Films list Api</h1>
+      <div class="col-md-6">
+      <!--  <div class="col-sm-4 col-lg-4 col-md-4">
+            <table class="table table-striped">
+                <tbody>
+                    <tr>
+                          <th># Films:</th>
+                          <td>{{response.count}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>-->
  {#       <!--<h5># Films: {{response.results}}<br/>-->#}
-        {% for result in response.results %}
-        Title: <a href="" target="_blank">{{result.title}}</a><br/>
-        Release Date: {{result.release_date}} <br/>
-        {% endfor %}
-        </h5>
-
+        <table class="table table-striped">
+             {% for result in response.results %}
+          <tbody>
+            <tr>
+                  <th>Title:</th>
+                  <th><a href="" target="_blank">{{result.title}}</a></th>
+            </tr>
+            <tr>
+                <th>Release Date:</th>
+                <th>{{result.release_date}}</th>
+            </tr>
+          </tbody>
+          {% endfor %}
+        </table>
       </div>
 </div>
 
@@ -20,7 +37,7 @@
             {% for film in films %}
                     <div class="col-sm-4 col-lg-4 col-md-4">
                         <div class="thumbnail">
-                            <a href="{{ path('film_show', { 'id': film.id }) }}" target="_blank">
+                            <a href="{{path('film_show',{'id':film.id}) }}" target="_blank">
                                 <img src="{{ asset('uploads/films/'~film.path) }}" alt="" style="width:100%;height:400px">
                             </a>
                             <div class="caption">

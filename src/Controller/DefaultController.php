@@ -51,4 +51,20 @@ class DefaultController extends AbstractController
         //    'delete_form' => $deleteForm->createView(),
         ));
     }
+
+     /**
+     * Creates a form to delete a film entity.
+     *
+     * @param Film $film The film entity
+     *
+     * @return \Symfony\Component\Form\Form The form
+     */
+    private function createDeleteForm(Film $film)
+    {
+        return $this->createFormBuilder()
+            ->setAction($this->generateUrl('film_delete', array('id' => $film->getId())))
+            ->setMethod('DELETE')
+            ->getForm()
+        ;
+    }
 }
