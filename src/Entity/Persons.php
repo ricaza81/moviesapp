@@ -135,11 +135,11 @@ class Persons
     /**
      * Set roles
      *
-     * @param \MoviesApp\MoviesBundle\Entity\Roles $roles
+     * @param \App\Entity\Roles $roles
      *
      * @return Persons
      */
-    public function setRoles(\MoviesApp\MoviesBundle\Entity\Roles $roles = null)
+    public function setRoles(\App\Entity\Roles $roles = null)
     {
         $this->roles = $roles;
 
@@ -149,7 +149,7 @@ class Persons
     /**
      * Get roles
      *
-     * @return \MoviesApp\MoviesBundle\Entity\Roles
+     * @return \App\Entity\Roles
      */
     public function getRoles()
     {

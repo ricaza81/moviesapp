@@ -155,11 +155,11 @@ class Film
     /**
      * Add person
      *
-     * @param \MoviesApp\MoviesBundle\Entity\Persons $person
+     * @param \App\Entity\Persons $person
      *
      * @return Film
      */
-    public function addPerson(\MoviesApp\MoviesBundle\Entity\Persons $person)
+    public function addPerson(\App\Entity\Persons $person)
     {
         $this->persons[] = $person;
 
@@ -169,9 +169,9 @@ class Film
     /**
      * Remove person
      *
-     * @param \MoviesApp\MoviesBundle\Entity\Persons $person
+     * @param \App\Entity\Persons $person
      */
-    public function removePerson(\MoviesApp\MoviesBundle\Entity\Persons $person)
+    public function removePerson(\App\Entity\Persons $person)
     {
         $this->persons->removeElement($person);
     }

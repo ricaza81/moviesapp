@@ -1,6 +1,6 @@
 <?php
 
-namespace MoviesApp\MoviesBundle\Entity;
+namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Persons
  *
  * @ORM\Table(name="persons")
- * @ORM\Entity(repositoryClass="MoviesApp\MoviesBundle\Repository\PersonsRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\PersonsRepository")
  */
 class Persons
 {
