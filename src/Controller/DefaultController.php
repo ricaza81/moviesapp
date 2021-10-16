@@ -34,10 +34,6 @@ class DefaultController extends AbstractController
             } else {
             $headers = $response1->getHeaders();
             $content = $response1->getContent();
-            foreach ($httpClient->stream($responses) as $response => $chunk) 
-            {
-                $title=$chunk->title;
-            }
             }
               return $this->render('lucky/number.html.twig',
                 [
@@ -48,9 +44,5 @@ class DefaultController extends AbstractController
                     'films' => $films,
                 ]
                 );
-
-        //return $this->render('film/index.html.twig', array(
-        //    'films' => $films,
-        //));
     }
 }
