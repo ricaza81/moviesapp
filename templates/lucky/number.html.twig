@@ -6,9 +6,9 @@
       <div class="col-sm-4 col-lg-4 col-md-4">
         <h5># Films: {{response.count}}<br/>
  {#       <!--<h5># Films: {{response.results}}<br/>-->#}
-        {% for result in response %}
-        Title:<br/>
-        Release Date: <br/>
+        {% for result in response.results %}
+        Title: {{result.title}}<br/>
+        Release Date: {{result.release_date}} <br/>
         {% endfor %}
         </h5>
 
