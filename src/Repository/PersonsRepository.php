@@ -1,6 +1,6 @@
 <?php
 
-namespace MoviesApp\MoviesBundle\Repository;
+namespace App\Repository;
 
 /**
  * PersonsRepository
