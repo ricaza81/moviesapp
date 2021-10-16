@@ -42,9 +42,12 @@ class DefaultController extends AbstractController
      * Finds and displays a film entity.
      *
      */
-     public function showAction(Film $film)
+     public function showAction($id):Response
     {
         //$deleteForm = $this->createDeleteForm($film);
+        $film = $this->getDoctrine()->getManager()
+        ->getRepository('App:Film')
+        ->find($id);
 
         return $this->render('lucky/show.html.twig', array(
             'film' => $film,
@@ -52,19 +55,5 @@ class DefaultController extends AbstractController
         ));
     }
 
-     /**
-     * Creates a form to delete a film entity.
-     *
-     * @param Film $film The film entity
-     *
-     * @return \Symfony\Component\Form\Form The form
-     */
-    private function createDeleteForm(Film $film)
-    {
-        return $this->createFormBuilder()
-            ->setAction($this->generateUrl('film_delete', array('id' => $film->getId())))
-            ->setMethod('DELETE')
-            ->getForm()
-        ;
-    }
+    
 }

@@ -3,10 +3,11 @@ index:
     controller: App\Controller\DefaultController::indexAction
 
 film_show:
-    path:   film/{id}/show
+    path:   /film/{id}/show
 #    defaults: { _controller: "App:Film:show" }
     controller: App\Controller\DefaultController::showAction
     methods:  GET
+#    methods: [GET, POST]
 
 #app_lucky_number:
 #    path: /lucky/number
