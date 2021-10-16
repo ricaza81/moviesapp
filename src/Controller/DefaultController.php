@@ -16,15 +16,7 @@ class DefaultController extends AbstractController
     {
         $em = $this->getDoctrine()->getManager();
         $films = $em->getRepository('App:Film')->findAll();
-       // $filmslist = $this->getDoctrine()->getRepository('App:Film');
-       // $films  = $this->get('knp_paginator')->paginate(
-       //     $filmslist,
-        //    $request->query->get('page', 1)/*page number*/,
-        //    3/*limit per page*/
-        //    );
-
         $httpClient = HttpClient::create();
-        //$response = $httpClient->request('GET', 'https://swapi.dev/api/people/1/');
         $response1 = $httpClient->request('GET', 'https://swapi.dev/api/films');
         $response = json_decode($response1->getContent(), true);
         $responses =[];
