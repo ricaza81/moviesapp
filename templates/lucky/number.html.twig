@@ -38,7 +38,8 @@
                     <div class="col-sm-4 col-lg-4 col-md-4">
                         <div class="thumbnail">
                             <a href="{{ path ('film_show', {id:film.id} ) }}" target="_blank">
-                                <img src="{{ asset('uploads/films/'~film.path) }}" alt="" style="width:100%;height:400px">
+                               <!-- <img src="{{ asset('uploads/films/'~film.path) }}" alt="" style="width:100%;height:400px">-->
+                                {{film.title}}
                             </a>
                             <div class="caption">
                                 <p class="pull-right"><h4>Film crew:</h4>
