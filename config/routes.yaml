@@ -7,7 +7,7 @@ home:
     controller: App\Controller\DefaultController::indexAction
 
 film_show:
-    path:   /film/{id}/show
+    path:   /film/show/{id}
     controller: App\Controller\DefaultController::showAction
     methods:  GET
 
