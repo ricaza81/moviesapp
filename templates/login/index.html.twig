@@ -12,7 +12,7 @@
                 <div class="card-body">
                     <form action="{{ path('login') }}" method="post">
                         <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
-                        <label for="username">Email: (try > ricaza81@gmail.com)</label>
+                        <label for="username">Email: (try > swapi@dev.com)</label>
                         <input type="text" id="username" name="_username" value="{{ last_username }}"/>
 
                         <label for="password">Password: (try > 123456)</label>
