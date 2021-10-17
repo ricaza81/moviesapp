@@ -17,10 +17,10 @@
                         <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
                         <br/>
                         <label for="username" style="margin-top:-10px">Email: (try > swapi@dev.com)</label>
-                        <input type="text" id="username" name="_username" value="{{ last_username }}" required style="border-width:0px;border-bottom-width:1px;border-color:#000;"/>
+                        <input type="text" id="username" name="_username" value="{{ last_username }}" required style="border-width:0px;border-bottom-width:1px;border-color:#000;height:45px;"/>
                         <br/>
-                        <label for="password" style="padding-right:33px;padding-top:20px">Password: (try > 123456)</label>
-                        <input type="password" id="password" name="_password" required style="border-width:0px;border-bottom-width:1px;border-color:#000;"/>
+                        <label for="password" style="padding-right:33px;padding-top:20px;">Password: (try > 123456)</label>
+                        <input type="password" id="password" name="_password" required style="border-width:0px;border-bottom-width:1px;border-color:#000;height:45px;"/>
 
                         {# If you want to control the URL the user is redirected to on success
                         <input type="hidden" name="_target_path" value="/account"/> #}
