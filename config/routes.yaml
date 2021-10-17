@@ -1,5 +1,9 @@
 index:
     path: /
+    controller: App\Controller\LoginController::index
+
+home:
+    path: /home
     controller: App\Controller\DefaultController::indexAction
 
 film_show:
