@@ -12,11 +12,11 @@
                 <div class="card-body">
                     <form action="{{ path('login') }}" method="post">
                         <a href="https://swapi.dev/" target="blank">
-                        <img src="https://pipedream.com/s.v0/app_mE7hlb/logo/orig" style="width:180px;padding:20px" />
+                        <img src="https://pipedream.com/s.v0/app_mE7hlb/logo/orig" style="width:180px;padding:20px;padding-bottom:5px;margin-bottom:-10px;" />
                         </a>
                         <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
                         <br/>
-                        <label for="username">Email: (try > swapi@dev.com)</label>
+                        <label for="username" style="margin-top:-10px">Email: (try > swapi@dev.com)</label>
                         <input type="text" id="username" name="_username" value="{{ last_username }}"/>
                         <br/>
                         <label for="password" style="padding-right:33px;">Password: (try > 123456)</label>
