@@ -12,10 +12,10 @@ film_show_api:
     controller: App\Controller\DefaultController::showActionApi
 #    methods:  GET
 
-login:
-    path:   /login
-    controller: App\Controller\LoginController::index
-    methods:  GET
+#login:
+#    path:   /login
+#    controller: App\Controller\LoginController::index
+#    methods:  GET
 
 #app_lucky_number:
 #    path: /lucky/number
