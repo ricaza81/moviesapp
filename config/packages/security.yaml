@@ -33,6 +33,8 @@ security:
                 default_target_path: home
             logout:
                 path: app_logout
+            #   logout_path: logout
+            #   default_target_path: logout
 
             # https://symfony.com/doc/current/security/impersonating_user.html
             # switch_user: true

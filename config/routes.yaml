@@ -12,13 +12,17 @@ film_show:
     methods:  GET
 
 film_show_api:
-    path:   /film_api/show
+    path:  /film_api/show
     controller: App\Controller\DefaultController::showActionApi
 #    methods:  GET
 
 app_logout:
     path: /logout
     methods: GET
+
+#film_logout:
+#    path: film_api/logout
+#    methods: GET
 
 #login:
 #    path:   /login
