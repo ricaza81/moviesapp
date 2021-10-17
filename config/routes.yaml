@@ -16,6 +16,10 @@ film_show_api:
     controller: App\Controller\DefaultController::showActionApi
 #    methods:  GET
 
+app_logout:
+    path: /logout
+    methods: GET
+
 #login:
 #    path:   /login
 #    controller: App\Controller\LoginController::index
