@@ -17,6 +17,20 @@
                 <th>Producer</th>
                 <td>{{ film.producer }}</td>
             </tr>
+
+             {% for result in film.characters %}
+            <div class="col-sm-4 col-lg-4 col-md-4">
+                <div class="thumbnail">
+                    <div class="caption">
+                        <a href="" target="_blank"></a>
+                        <p>Character: {{result}}
+                        </p>
+                         <hr>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
         </tbody>
     </table>
 {% endblock %}
