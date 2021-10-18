@@ -34,9 +34,9 @@
                          <p>Character: {{result}}
                         </p>
                          <hr>
-{#}                         {% for res in character %} #}
-                         <p>Name:<br/>
-{#                         {% endfor %} #}
+                         {% for res in result %} 
+                         <p>Name:</p><br/> {{res.name}}<br/>
+                         {% endfor %} 
                     </div>
                 </div>
             </div>

@@ -52,24 +52,24 @@ class DefaultController extends AbstractController
        //$response = $httpClient->request('GET', $url_base.'films/'.$id.'/');
        $response = $httpClient->request('GET', $url_base.'films/1');
        //$people=$response->results->characters;
-       $people=json_decode($response->getContent(), true);
+       //$people=json_decode($response->getContent(), true);
        $film = json_decode($response->getContent(), true);
        //$characters = json_decode($film->getHeaders(), true);
        //$characters = $film->toArray();
        $response_character = $httpClient->request('GET', $url_base.'people/2');
        $character = json_decode($response_character->getContent(), true);
        
-       //foreach ($response_character as $response) {
-       //$response = $httpClient->request('GET', $url_base.'people/1');
-       //$character = json_decode($response->getContent(), true);
-       // }
+       foreach ($character as $character) {
+           $character = json_decode($response_character->getContent(), true);
+          // return $character;
+        
         
         return $this->render('lucky/show_api.html.twig', array(
             'film'          => $film,
-            'people'        => $people,
+            //'people'        => $people,
             'character'     => $character,
         ));
-    //}
+    }
     }
 
      /**
