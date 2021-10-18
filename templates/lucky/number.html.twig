@@ -8,9 +8,12 @@
             <div class="col-sm-4 col-lg-4 col-md-4">
                 <div class="thumbnail">
                     <div class="caption">
-                        <a href="{{ path ('film_show_api', {result:result} ) }}" target="_blank">{{result.title}}</a>
+{#                        <a href="{{ path ('film_show_api', {result:result.episode_id} ) }}" target="_blank"> #}
+                        <a href="{{ path ('film_show_api', {result:result.episode_id} ) }}" target="_blank">
+                        {{result.title}}</a>
                         <hr>
                          <p>Release Date: {{result.release_date}}<br/>
+                         Id Epidose: {{ result.episode_id }}<br/>
                          Director: {{result.director}} <br/>
                          Producer(s): {{result.producer}}
                         </p>

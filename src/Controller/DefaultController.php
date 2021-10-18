@@ -4,7 +4,7 @@ namespace App\Controller;
 
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-//use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Contracts\HttpClient\HttpClientInterface;
 use App\Entity\Film;
 use App\Entity\Persons;
 use Symfony\Component\HttpFoundation\Request;
@@ -47,13 +47,29 @@ class DefaultController extends AbstractController
      public function showActionApi():Response
     {
        $httpClient = HttpClient::create();
+       $url_base='https://swapi.dev/api/';
        //$response = $httpClient->request('GET','$result.url');
-       $response = $httpClient->request('GET', 'https://swapi.dev/api/films/1/');
+       //$response = $httpClient->request('GET', $url_base.'films/'.$id.'/');
+       $response = $httpClient->request('GET', $url_base.'films/1');
+       //$people=$response->results->characters;
+       $people=json_decode($response->getContent(), true);
        $film = json_decode($response->getContent(), true);
-
+       //$characters = json_decode($film->getHeaders(), true);
+       //$characters = $film->toArray();
+       $response_character = $httpClient->request('GET', $url_base.'people/2');
+       $character = json_decode($response_character->getContent(), true);
+       
+       //foreach ($response_character as $response) {
+       //$response = $httpClient->request('GET', $url_base.'people/1');
+       //$character = json_decode($response->getContent(), true);
+       // }
+        
         return $this->render('lucky/show_api.html.twig', array(
-            'film' => $film,
+            'film'          => $film,
+            'people'        => $people,
+            'character'     => $character,
         ));
+    //}
     }
 
      /**
