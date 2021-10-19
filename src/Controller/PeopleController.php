@@ -12,14 +12,14 @@ use Symfony\Component\HttpClient\HttpClient;
 use Symfony\Component\HttpFoundation\JsonResponse;
 //use Doctrine\ORM\Mapping\ClassMetadata;
 
-class DefaultController extends AbstractController
+class PeopleController extends AbstractController
 {
-    public function indexAction(Request $request)
+    public function index(Request $request)
     {
-        $em = $this->getDoctrine()->getManager();
-        $films = $em->getRepository('App:Film')->findAll();
+        //$em = $this->getDoctrine()->getManager();
+        //$films = $em->getRepository('App:Film')->findAll();
         $httpClient = HttpClient::create();
-        $response1 = $httpClient->request('GET', 'https://swapi.dev/api/films');
+        $response1 = $httpClient->request('GET', 'https://swapi.dev/api/people');
         $response = json_decode($response1->getContent(), true);
         $responses =[];
         //$content = $response->getContent();
@@ -29,13 +29,13 @@ class DefaultController extends AbstractController
             $headers = $response1->getHeaders();
             $content = $response1->getContent();
             }
-              return $this->render('lucky/number.html.twig',
+              return $this->render('people/index.html.twig',
                 [
                     'headers' => $headers,
                     'response' => $response,
                     //'response' => getResult($response),
                     'content' => $content,
-                    'films' => $films,
+          //          'films' => $films,
                 ]
                 );
     }

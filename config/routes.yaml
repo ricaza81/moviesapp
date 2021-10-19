@@ -6,6 +6,10 @@ home:
     path: /home
     controller: App\Controller\DefaultController::indexAction
 
+people:
+    path: /people
+    controller: App\Controller\PeopleController::index
+
 film_show:
     path:   /film/show/{id}
     controller: App\Controller\DefaultController::showAction

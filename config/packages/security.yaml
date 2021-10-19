@@ -44,5 +44,6 @@ security:
     access_control:
         # - { path: ^/admin, roles: ROLE_ADMIN }
          - { path: ^/home, roles: ROLE_USER }
+         - { path: ^/people, roles: ROLE_USER }
          - { path: ^/film/show, roles: ROLE_USER }
          - { path: ^/film_api/show, roles: ROLE_USER }
