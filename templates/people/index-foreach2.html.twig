@@ -2,27 +2,9 @@
 {% block body %}
 
 <div class="row" style="padding-top:120px">
-    <h1>Total {{response.count}} Characters list Api <a href="https://swapi.dev" target="_blank">swapi.dev</a></h1>
+    <h1>Total {{response.count}} Films list Api <a href="https://swapi.dev" target="_blank">swapi.dev</a></h1>
       <div class="row">
-         {% for result in response.results %}
-            <div class="col-sm-4 col-lg-4 col-md-4">
-                <div class="thumbnail">
-                    <div class="caption">
-                        <a href="" target="_blank">
-{#                      <a href="{{ path ('film_show_api', {result:result.episode_id} ) }}" target="_blank"> #}
-                        {{result.name}}</a>
-                        <hr>
-                        {% for result in result.films %}
-{#                        <p>{{result:json_encode(result.title)}}</p> #}
-                          <p>{{result}}</p>
-                        {% endfor %}
-                         <br/>
-                         <br/>
-                         </p>
-                    </div>
-                </div>
-            </div>
-         {% endfor %}
+<?php foreach ($response->results as $actor): ?>
  {#       <!--<h5># Films: {{response.results}}<br/>-->#}
  {#     <table class="table table-striped">
              {% for result in response.results %}
@@ -39,6 +21,7 @@
           {% endfor %}
         </table> #}
       </div>
+<?php endforeach; ?> 
 </div>
 
 {#    <h1 style="margin: 10px 0 20px;">Movies that have been explored for others</h1>
