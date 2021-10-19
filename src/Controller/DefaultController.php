@@ -46,30 +46,39 @@ class DefaultController extends AbstractController
      */
      public function showActionApi():Response
     {
+       $em = $this->getDoctrine()->getManager();
+       $film = $em->getRepository('App:Film')->find(4); 
        $httpClient = HttpClient::create();
        $url_base='https://swapi.dev/api/';
-       //$response = $httpClient->request('GET','$result.url');
-       //$response = $httpClient->request('GET', $url_base.'films/'.$id.'/');
        $response = $httpClient->request('GET', $url_base.'films/1');
-       //$people=$response->results->characters;
-       //$people=json_decode($response->getContent(), true);
-       $film = json_decode($response->getContent(), true);
-       //$characters = json_decode($film->getHeaders(), true);
-       //$characters = $film->toArray();
-       $response_character = $httpClient->request('GET', $url_base.'people/2');
+       $film_api = json_decode($response->getContent(), true);
+       //$film_api = json_decode($response->getContent(), true);
+       /*[
+        'characters' => $response,
+       ]
+       );
+       dd($film_api);*/
+      // $title = json_decode($response->getContent(array $film_api), true);
+      // $people = $film_api->$characters;
+       //$url_characters = [ 'url_characters' => $film($results) ];
+       $response_character = $httpClient->request('GET', $url_base.'people/');
+       //$character = json_decode($response_character->getContent($film_api=true));
        $character = json_decode($response_character->getContent(), true);
-       
-       foreach ($character as $character) {
-           $character = json_decode($response_character->getContent(), true);
-          // return $character;
-        
-        
+
+       //Endpoint in endpoint//
+       //$film_endpoint = json_decode($response->getContent(), true);
+       //foreach ($response_character.$results as $fl) {
+       //    $character = $fl;
+       //  }
+        //Endpoint in endpoint//
+
         return $this->render('lucky/show_api.html.twig', array(
-            'film'          => $film,
-            //'people'        => $people,
-            'character'     => $character,
+            'film_api'  => $film_api,
+            'film'      => $film,
+            'character' => $character,
+            'response_character' => $response_character,
         ));
-    }
+    //}
     }
 
      /**

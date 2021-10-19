@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+//use getUrl;
 //use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
@@ -21,6 +22,13 @@ class Persons
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
+
+     /**
+     * @var string
+     *
+     * @ORM\Column(name="base", type="string", length=255)
+     */
+    private $base;
 
     /**
      * @var string

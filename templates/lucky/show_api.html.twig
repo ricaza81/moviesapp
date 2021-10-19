@@ -3,57 +3,84 @@
 {% block body %}
     <h1 style="margin-top: 80px 0 20px;padding-top:95px;padding-bottom:20px">Api Film SW Details <b>{{ film.title }}</b></h1>
 
-    <table class="table table-striped">
-        <tbody>
-            <tr>
+    <table class="table table-striped" style="padding-top:20px;">
+        <tbody  style="padding-top:20px;">
+            <tr  style="padding-top:20px;">
                 <th>Title</th>
-                <td>{{ film.title }}</td>
+                <td>{{ film_api.title }}</td>
             </tr>
              <tr>
                 <th>Id Epidose</th>
-                <td>{{ film.episode_id }}</td>
+                <td>{{ film_api.episode_id }}</td>
             </tr>
             <tr>
                 <th>Yearpublication</th>
-                <td>{{ film.release_date }}</td>
+                <td>{{ film_api.release_date }}</td>
             </tr>
             <tr>
                 <th>Producer</th>
-                <td>{{ film.producer }}</td>
+                <td>{{ film_api.producer }}</td>
             </tr>
             <tr>
                 <th>Producer</th>
-                <td>{{ film.producer }}</td>
+                <td>{{ film_api.producer }}</td>
+            </tr>
+                 <b>Characters:</b> <br/>
+{#                {% for result in film_api.characters %}
+                        <div class="col-sm-4 col-lg-4 col-md-4">
+                            <div class="thumbnail">
+                                <div class="caption">
+                                    <a href="" target="_blank"></a>
+                                    <p>Character:
+                                    </p>
+                                     <hr> #}
+           
+                                         {% for res in character.results %}
+                                         {{ res.name }} <br/>
+                                         {% endfor %}
+                                     
+                                               
+{#                                            {% for person in film_api.characters %} #}
+{#                                                <a href="" class="btn btn-default">{{ person.name }}</a> #}
+{#                                            {% endfor %} #}
+{#                                </div>
+                            </div>
+                        </div>     
+                {% endfor %} #}
             </tr>
 
-             {% for result in film.characters %}
-            <div class="col-sm-4 col-lg-4 col-md-4">
-                <div class="thumbnail">
-                    <div class="caption">
-                        <a href="" target="_blank"></a>
-                         <p>Character: {{result}}
-                        </p>
-                         <hr>
-                         {% for res in result %} 
-                         <p>Name:</p><br/> {{res.name}}<br/>
-                         {% endfor %} 
-                    </div>
-                </div>
-            </div>
-            {% endfor %}
+{#              {% for person in film.persons %} #} 
+{#                <a href="" class="btn btn-default">{{ person.name }}</a> #} 
+{#              {% endfor %} #} 
+
+{#             {% for character in character %} #} 
+{#            <div class="col-sm-4 col-lg-4 col-md-4"> #}
+{#                <div class="thumbnail"> #}
+{#                    <div class="caption">
+{#                        <a href="" target="_blank"></a> #}
+{#                         <p>Character: {{character.name}} #}
+{#                        </p> #}
+{#                         <hr> #}
+{#                        {% for res in result %} #}
+{#                        <p>Name:</p><br/> {{res.name}}<br/> #}
+{#                        {% endfor %} #}
+{#                    </div> #}
+{#                </div> #}
+{#            </div> #}
+{#           {% endfor %} #}
 
 
-  {#           {% for character in character %} #}
-            <div class="col-sm-4 col-lg-4 col-md-4">
-                <div class="thumbnail">
-                    <div class="caption">
-                         <hr>
-                         <p>Name: {{character.name}}<br/>
-                        </p>
-                    </div>
-                </div>
-            </div>
-   {#         {% endfor %} #}
+{#           {% for character in character %} #}
+{#            <div class="col-sm-4 col-lg-4 col-md-4">
+{#                <div class="thumbnail">
+{#                    <div class="caption">
+{#                         <hr>
+{#                         <p>Name: {{character.name}}<br/>
+{#                        </p>
+{#                    </div>
+{#                </div>
+{#            </div>
+{#         {% endfor %} #}
 
         </tbody>
     </table>
