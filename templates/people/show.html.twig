@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1 style="margin: 100px 0 20px;">Details Character</h1>
+
+    <table class="table table-striped">
+        <tbody>
+            <tr>
+                <th>Name</th>
+                <td>{{ character.name }}</td>
+            </tr>
+            <tr>
+                <th>Height</th>
+                <td>{{ character.height }}</td>
+            </tr>
+             <tr>
+                <th>Url</th>
+                <td>{{ character.url }}</td>
+            </tr>
+            <tr>
+                <th>Films</th>
+                <td>
+                    {% for films in character.films %}
+                    <p>{{films}}</p>
+                    {% endfor %}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+{% endblock %}

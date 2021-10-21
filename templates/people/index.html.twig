@@ -2,20 +2,31 @@
 {% block body %}
 
 <div class="row" style="padding-top:120px">
-    <h1>Total {{response.count}} Characters list Api <a href="https://swapi.dev" target="_blank">swapi.dev</a></h1>
+    <h1>Total {{people.count}} Characters list Api <a href="https://swapi.dev" target="_blank">swapi.dev</a></h1>
       <div class="row">
-         {% for result in response.results %}
+
+
+
+         {% for character in people.results %}
             <div class="col-sm-4 col-lg-4 col-md-4">
                 <div class="thumbnail">
                     <div class="caption">
-                        <a href="" target="_blank">
-{#                      <a href="{{ path ('film_show_api', {result:result.episode_id} ) }}" target="_blank"> #}
-                        {{result.name}}</a>
+                        <p>
+                        {{character.name}}
+                            
+                            {% for film in character.films %}
+                            <p>{{film}} => </p>
+                            {% endfor %}
+
+                            {% for character,films in films.results %}
+
+                                  <p> *{{films.title}}</p>
+                                  
+                            {% endfor %}    
+                           
+                        </p>
                         <hr>
-                        {% for result in result.films %}
-{#                        <p>{{result:json_encode(result.title)}}</p> #}
-                          <p>{{result}}</p>
-                        {% endfor %}
+                       
                          <br/>
                          <br/>
                          </p>

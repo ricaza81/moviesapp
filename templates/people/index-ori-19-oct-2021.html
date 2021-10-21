@@ -2,28 +2,37 @@
 {% block body %}
 
 <div class="row" style="padding-top:120px">
-    <h1>Total {{response.count}} Films list Api <a href="https://swapi.dev" target="_blank">swapi.dev</a></h1>
+    <h1>Total {{people.count}} Characters list Api <a href="https://swapi.dev" target="_blank">swapi.dev</a></h1>
       <div class="row">
-         {% for result in response.results %}
-
+         {% for character in people.results %}
             <div class="col-sm-4 col-lg-4 col-md-4">
                 <div class="thumbnail">
                     <div class="caption">
-                        <a href="{{ path ('film_show_api', {result:result} ) }}" target="_blank">
-{#                      <a href="{{ path ('film_show_api', {result:result.episode_id} ) }}" target="_blank"> #}
-                        {{result.title}}</a>
-                        <hr>
-                         <p>Release Date: {{result.release_date}}<br/>
-                         Id Epidose: {{ result.episode_id }}<br/>
-                         Director: {{result.director}} <br/>
-                         Producer(s): {{result.producer}}
+                        <p>
+                        {{character.name}}
+                        {{character.birth_year}}
+                            {% for character,films in films.results %}
+                                <p> <p>sadasd</p></p>
+{#                            {% for character,films in films.results %}
+                                {% endfor %}                                                    #}
+                               
+                            {% endfor %}    
+ {#                           {% for films,character in films.results %}
+                               <p>{{character}}</p>
+                                <p>{{films}}</p>
+                            {% endfor %}                                                        #}
                         </p>
+                        <hr>
+                       
+                         <br/>
+                         <br/>
+                         </p>
                     </div>
                 </div>
             </div>
          {% endfor %}
- {#       <!--<h5># Films: {{response.results}}<br/>-->
- <!--       <table class="table table-striped">
+ {#       <!--<h5># Films: {{response.results}}<br/>-->#}
+ {#     <table class="table table-striped">
              {% for result in response.results %}
           <tbody>
             <tr>
@@ -36,11 +45,11 @@
             </tr>
           </tbody>
           {% endfor %}
-        </table>--> #}
+        </table> #}
       </div>
 </div>
 
-    <h1 style="margin: 10px 0 20px;">Movies that have been explored for others</h1>
+{#    <h1 style="margin: 10px 0 20px;">Movies that have been explored for others</h1>
     <div class="row">
             {% for film in films %}
                     <div class="col-sm-4 col-lg-4 col-md-4">
@@ -52,7 +61,7 @@
                             <div class="caption">
                                 <p class="pull-right"><h4>Film crew:</h4>
                                 {% for person in film.persons %}
-                                        <a href="{{ path ('people_show', {id:person.id} ) }}" class="btn btn-default" target="_blank">{{ person.name }} {{ person.roles.name}}</a>
+                                        <a href="" class="btn btn-default">{{ person.name }} {{ person.roles.name}}</a>
                                 {% endfor %}
                                 </p>
                                 <h4><a href="{{ path ('film_show', {id:film.id} ) }}" target="_blank">{{ film.title }}</a>
@@ -62,7 +71,7 @@
                         </div>
                     </div>
             {% endfor %}
-        </div>
+        </div> #}
 {#         <a href="" class="btn btn-danger">Add new Movies</a>#}
        <div class="bs-example">
             <ul class="pagination">

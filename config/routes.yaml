@@ -20,6 +20,11 @@ film_show_api:
     controller: App\Controller\DefaultController::showActionApi
 #    methods:  GET
 
+people_show:
+    path:   /people/show/{id}
+    controller: App\Controller\PeopleController::showAction
+    methods:  GET
+
 app_logout:
     path: /logout
     methods: GET

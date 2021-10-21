@@ -10,41 +10,49 @@ use App\Entity\Persons;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpClient\HttpClient;
 use Symfony\Component\HttpFoundation\JsonResponse;
+//use Symfony\Component\HttpClient\Response\CurlResponse;
 //use Doctrine\ORM\Mapping\ClassMetadata;
 
 class PeopleController extends AbstractController
 {
     public function index(Request $request)
     {
-        //$em = $this->getDoctrine()->getManager();
-        //$films = $em->getRepository('App:Film')->findAll();
+      
         $httpClient = HttpClient::create();
-        $response1 = $httpClient->request('GET', 'https://swapi.dev/api/people');
-        $response = json_decode($response1->getContent(), true);
-        $responses =[];
-        //$content = $response->getContent();
-        if (200 !== $response1->getStatusCode()) {
-            // handle the HTTP request error (e.g. retry the request)
-            } else {
-            $headers = $response1->getHeaders();
-            $content = $response1->getContent();
-            }
+        $films1=$httpClient->request('GET', 'https://swapi.dev/api/films/');
+        //$films = json_decode($films1->getContent('results'), true);
+        $response1 = $httpClient->request('GET', 'https://swapi.dev/api/people/');
+        $people = json_decode($response1->getContent('results'), true);
+        $films = json_decode($films1->getContent('url'), true);
+        $film_1=$httpClient->request('GET', 'https://swapi.dev/api/films/1/');
+        $film1=json_encode($film_1->getContent('url'), true);
+        //dd($film1);
+        foreach ($people as $character)
+        {
+            //$url = $character['results'];
+           
+            
+        }
+
               return $this->render('people/index.html.twig',
                 [
-                    'headers' => $headers,
-                    'response' => $response,
-                    //'response' => getResult($response),
-                    'content' => $content,
-          //          'films' => $films,
+                    'people' => $people,
+                    'films' => $films,
+                    'film1' => $film1,
                 ]
                 );
+      
+    }
+
+    public function films($film):Response {
+         return $this->render('people/index.html.twig');
     }
 
       /**
      * Finds and displays a film entity api.
      *
      */
-     public function showActionApi():Response
+     public function showPeopleApi():Response
     {
        $em = $this->getDoctrine()->getManager();
        $film = $em->getRepository('App:Film')->find(4); 
@@ -90,14 +98,16 @@ class PeopleController extends AbstractController
      */
      public function showAction($id):Response
     {
-        //$deleteForm = $this->createDeleteForm($film);
-        $film = $this->getDoctrine()->getManager()
-        ->getRepository('App:Film')
-        ->find($id);
+       $httpClient = HttpClient::create();
+       $url_base='https://swapi.dev/api/';
+       $response = $httpClient->request('GET', $url_base.'people/'.$id);
+       $character = json_decode($response->getContent(), true);
+       $films1=$httpClient->request('GET', 'https://swapi.dev/api/films/');
+       $films = json_decode($films1->getContent('url'), true);
 
-        return $this->render('lucky/show.html.twig', array(
-            'film' => $film,
-        //    'delete_form' => $deleteForm->createView(),
+        return $this->render('people/show.html.twig', array(
+            'character' => $character,
+            'films' => $films,
         ));
     }
 

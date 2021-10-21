@@ -20,21 +20,15 @@ class DefaultController extends AbstractController
         $films = $em->getRepository('App:Film')->findAll();
         $httpClient = HttpClient::create();
         $response1 = $httpClient->request('GET', 'https://swapi.dev/api/films');
-        $response = json_decode($response1->getContent(), true);
+        $response = json_decode($response1->getContent(''), true);
         $responses =[];
-        //$content = $response->getContent();
-        if (200 !== $response1->getStatusCode()) {
-            // handle the HTTP request error (e.g. retry the request)
-            } else {
-            $headers = $response1->getHeaders();
-            $content = $response1->getContent();
-            }
+        //$url=$response->getUrl();
+        
               return $this->render('lucky/number.html.twig',
                 [
-                    'headers' => $headers,
+                 
                     'response' => $response,
-                    //'response' => getResult($response),
-                    'content' => $content,
+                    //'url'
                     'films' => $films,
                 ]
                 );
@@ -47,7 +41,8 @@ class DefaultController extends AbstractController
      public function showActionApi():Response
     {
        $em = $this->getDoctrine()->getManager();
-       $film = $em->getRepository('App:Film')->find(4); 
+       //$film = $em->getRepository('App:Film')->find(4);
+
        $httpClient = HttpClient::create();
        $url_base='https://swapi.dev/api/';
        $response = $httpClient->request('GET', $url_base.'films/1');
@@ -76,7 +71,7 @@ class DefaultController extends AbstractController
 
         return $this->render('lucky/show_api.html.twig', array(
             'film_api'  => $film_api,
-            'film'      => $film,
+            //'film'      => $film,
             'character' => $character,
             'response_character' => $response_character,
         //    'fl'        => $fl,
